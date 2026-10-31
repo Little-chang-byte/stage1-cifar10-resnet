@@ -42,6 +42,36 @@ test_accuracy=0.3840 (192/500)
 
 该结果来自 500 个测试样本。small 模式用于 CPU 环境下的流程验证，不能等同于完整数据集和充分训练后的最终指标。
 
+## 真实样本预测验证
+
+执行：
+
+```powershell
+.\.venv-codex-pytorch\Scripts\python.exe src\predict.py
+```
+
+实际输出：
+
+```text
+image_index= 0
+true_label= cat
+predicted_label= cat
+confidence= 0.5141
+prediction_image= outputs\single_prediction.png
+```
+
+## NumPy 数据统计验证
+
+`src/data_analysis.py` 使用 NumPy 读取 CIFAR-10 图像数组并计算 RGB 通道统计，实际输出为：
+
+```text
+numpy_sample_shape= (100, 32, 32, 3)
+numpy_channel_mean= [0.4753, 0.4623, 0.4149]
+numpy_channel_std= [0.2414, 0.236, 0.2419]
+```
+
+结果保存为 `outputs/pixel_statistics.csv`。
+
 ## Git 验证
 
 远程仓库：<https://github.com/Little-chang-byte/stage1-cifar10-resnet>

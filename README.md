@@ -25,6 +25,8 @@ python src/predict.py
 - `outputs/`：真实运行生成的图表
 - `weights/`：训练生成的权重
 
+`src/predict.py` 会加载真实 CIFAR-10 测试样本和已保存权重，输出真实标签、预测标签、置信度，并生成 `outputs/single_prediction.png`。`src/data_analysis.py` 还会使用 NumPy 计算前 100 个样本的 RGB 均值和标准差，保存为 `outputs/pixel_statistics.csv`。
+
 ## 说明
 
 本项目优先保证流程完整和结果可复现。最终指标以实际运行日志为准，不在代码或文档中预先填写虚构数值。
